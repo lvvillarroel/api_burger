@@ -68,7 +68,7 @@ class IngredientView(viewsets.ModelViewSet):
         if serializer.is_valid(raise_exception=True):
             ingredient = serializer.save()
             serializer.save(
-                path='http://127.0.0.1:8000/ingrediente/{}/'.format(ingredient.id))
+                path='https://t2-burgerapi-ti.herokuapp.com/ingrediente/{}/'.format(ingredient.id))
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
